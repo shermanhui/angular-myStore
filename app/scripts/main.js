@@ -108,17 +108,17 @@ app.controller('StoreController', function(){
 
 });
 
-app.controller('TabController', function(){
-	this.tab = 1;
+// app.controller('TabController', function(){
+// 	this.tab = 1;
 
-	this.selectTab = function(setTab){
-		this.tab = setTab;
-	};
+// 	this.selectTab = function(setTab){
+// 		this.tab = setTab;
+// 	};
 
-	this.isSelected = function(selectedTab){
-		return this.tab === selectedTab;
-	};
-});
+// 	this.isSelected = function(selectedTab){
+// 		return this.tab === selectedTab;
+// 	};
+// });
 
 app.directive('tabPanels', function(){
 	return {
@@ -138,6 +138,21 @@ app.directive('tabPanels', function(){
 		controllerAs: 'tab'
 	};
 });
+
+app.directive('productGallery', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'templates/product-gallery.tpl.html',
+		controller: function(){
+			this.current = 0;
+
+			this.setCurrent = function(currentImg){
+				this.current = currentImg || 0;
+			}
+		},
+		controllerAs: 'gallery'
+	};
+})
 
 app.directive('productDescription', function(){
 	return {

@@ -47,7 +47,8 @@
         <div class="col-xs-4 shop-item" ng-repeat="item in shop.products">
           <h2>{{item.name}} <b class="pull-right">{{item.price | currency}}</b></h2>
 
-          <section class='gallery' ng-show="item.images.length" ng-controller="GalleryController as gallery">
+          <product-gallery></product-gallery>
+          <!-- <section class='gallery' ng-show="item.images.length" ng-controller="GalleryController as gallery">
 
             <img g-src="{{product.images[gallery.current]}}" alt="woops">
             <ul class="list-inline thumbs">
@@ -56,7 +57,7 @@
                 </li>
             </ul>
 
-          </section>
+          </section> -->
 
           <tab-panels></tab-panels>
 <!--           <section class="text-centre" ng-controller="TabController as tab">
