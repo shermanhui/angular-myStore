@@ -11,10 +11,20 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
+// html, body{
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.shop-item {
+  border: 1px solid black;
+  min-height: 300px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -28,14 +38,22 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
+}
+
+.ng-invalid.ng-dirty{
+  border-color: #FA787E !important;
+}
+
+.ng-valid.ng-dirty{
+  border-color: #78FA89 !important;
+}
 
   /* Make the masthead heading the same height as the navigation */
-  h3 {
+h3 {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
-  }
 }
 
 /* Custom page footer */
@@ -67,10 +85,15 @@ body {
   }
 }
 
+/* Map */
+#map { height: 100%; }
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    // max-width: 730px;
+     width: 100%;
+    // padding: 0;
   }
 
   /* Remove the padding we set earlier */

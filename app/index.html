@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en" ng-app="sweetStore">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -22,11 +22,10 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="StoreController as shop">
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
@@ -34,30 +33,62 @@
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-        <h3 class="text-muted">angular myStore</h3>
+        <h3 class="text-muted">Taste of Leaven</h3>
       </div>
 
       <div class="jumbotron">
         <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
+        <p class="lead">{{"Hello Angular"}}</p>
         <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
 
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
+        <div class="col-xs-4 shop-item" ng-repeat="item in shop.products">
+          <h2>{{item.name}} <b class="pull-right">{{item.price | currency}}</b></h2>
 
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+          <section class='gallery' ng-show="item.images.length" ng-controller="GalleryController as gallery">
 
+            <img g-src="{{product.images[gallery.current]}}" alt="woops">
+            <ul class="list-inline thumbs">
+                <li class="thumbnail" ng-repeat="image in item.images">
+                  <img ng-src="{{image}}" alt="mini-woops" />
+                </li>
+            </ul>
+
+          </section>
+
+          <tab-panels></tab-panels>
+<!--           <section class="text-centre" ng-controller="TabController as tab">
+
+            <ul class="nav nav-pills">
+              <li ng-class="{active: tab.isSelected(1)}">
+                <a href="" ng-click="tab.selectTab(1)">Description</a>
+              </li>
+              <li ng-class="{active: tab.isSelected(2)}">
+                <a href="" ng-click="tab.selectTab(2)">Ingredients</a>
+              </li>
+              <li ng-class="{active: tab.isSelected(3)}">
+                <a href="" ng-click="tab.selectTab(3)">Reviews</a>
+              </li>
+            </ul>
+
+            <product-description class="panel" ng-show="tab.isSelected(1)">
+            </product-description>
+
+            <div product-ingredients class="panel" ng-show="tab.isSelected(2)">
+            </div>
+
+            <product-review class="panel" ng-show="tab.isSelected(3)">
+            </product-Review>
+
+          </section> -->
+          <p ng-hide="item.in_stock">Item is out of stock!</p>
+          <button ng-show="item.in_stock">Add to cart</button>
         </div>
+
       </div>
+
 
       <div class="footer">
         <p>♥ from the Yeoman team</p>
@@ -77,6 +108,9 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angularfire/dist/angularfire.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
