@@ -1,4 +1,4 @@
-<section class='gallery' ng-show="item.images.length" ng-controller="GalleryController as gallery">
+<section class='gallery' ng-show="item.images.length">
 	<img g-src="{{product.images[gallery.current]}}" alt="woops">
 	<ul class="list-inline thumbs">
 		<li class="thumbnail" ng-repeat="image in item.images">

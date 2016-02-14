@@ -80,7 +80,7 @@ var inventory = [
 	}
 ];
 
-var app = angular.module('sweetStore', []);
+var app = angular.module('sweetStore', ['store-directives']);
 
 app.controller('ReviewController', function(){
 	this.review = {};
@@ -93,20 +93,21 @@ app.controller('ReviewController', function(){
 		this.review = {};
 	}
 
-})
-
-app.controller('GalleryController', function(){
-	this.current = 0;
-
-	this.setCurrent = function(currentImg){
-		this.current = currentImg || 0;
-	}
 });
 
 app.controller('StoreController', function(){
-	this.products = inventory;
+	this.products = inventory; //$http
 
 });
+
+// app.controller('GalleryController', function(){
+// 	this.current = 0;
+
+// 	this.setCurrent = function(currentImg){
+// 		this.current = currentImg || 0;
+// 	}
+// });
+
 
 // app.controller('TabController', function(){
 // 	this.tab = 1;
@@ -120,57 +121,57 @@ app.controller('StoreController', function(){
 // 	};
 // });
 
-app.directive('tabPanels', function(){
-	return {
-		restrict: 'E',
-		templateUrl: 'templates/panel-controller.tpl.html',
-		controller: function(){
-			this.tab = 1;
+// app.directive('tabPanels', function(){
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'templates/panel-controller.tpl.html',
+// 		controller: function(){
+// 			this.tab = 1;
 
-			this.selectTab = function(setTab){
-				this.tab = setTab;
-			};
+// 			this.selectTab = function(setTab){
+// 				this.tab = setTab;
+// 			};
 
-			this.isSelected = function(selectedTab){
-				return this.tab === selectedTab;
-			};
-		},
-		controllerAs: 'tab'
-	};
-});
+// 			this.isSelected = function(selectedTab){
+// 				return this.tab === selectedTab;
+// 			};
+// 		},
+// 		controllerAs: 'tab'
+// 	};
+// });
 
-app.directive('productGallery', function(){
-	return {
-		restrict: 'E',
-		templateUrl: 'templates/product-gallery.tpl.html',
-		controller: function(){
-			this.current = 0;
+// app.directive('productGallery', function(){
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'templates/product-gallery.tpl.html',
+// 		controller: function(){
+// 			this.current = 0;
 
-			this.setCurrent = function(currentImg){
-				this.current = currentImg || 0;
-			}
-		},
-		controllerAs: 'gallery'
-	};
-})
+// 			this.setCurrent = function(currentImg){
+// 				this.current = currentImg || 0;
+// 			}
+// 		},
+// 		controllerAs: 'gallery'
+// 	};
+// })
 
-app.directive('productDescription', function(){
-	return {
-		templateUrl: 'templates/product-desc.tpl.html',
-		restrict: 'E'
-	};
-});
+// app.directive('productDescription', function(){
+// 	return {
+// 		templateUrl: 'templates/product-desc.tpl.html',
+// 		restrict: 'E'
+// 	};
+// });
 
-app.directive('productReview', function(){
-	return {
-		templateUrl: 'templates/product-review.tpl.html',
-		restrict: 'E'
-	}
-});
+// app.directive('productReview', function(){
+// 	return {
+// 		templateUrl: 'templates/product-review.tpl.html',
+// 		restrict: 'E'
+// 	}
+// });
 
-app.directive('productIngredients', function(){
-	return {
-		templateUrl: 'templates/product-ingredients.tpl.html',
-		restrict: 'A'
-	}
-})
+// app.directive('productIngredients', function(){
+// 	return {
+// 		templateUrl: 'templates/product-ingredients.tpl.html',
+// 		restrict: 'A'
+// 	}
+// });
