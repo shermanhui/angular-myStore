@@ -45,45 +45,13 @@
       <div class="row marketing">
 
         <div class="col-xs-4 shop-item" ng-repeat="item in shop.products">
+
           <h2>{{item.name}} <b class="pull-right">{{item.price | currency}}</b></h2>
 
           <product-gallery></product-gallery>
-          <!-- <section class='gallery' ng-show="item.images.length" ng-controller="GalleryController as gallery">
-
-            <img g-src="{{product.images[gallery.current]}}" alt="woops">
-            <ul class="list-inline thumbs">
-                <li class="thumbnail" ng-repeat="image in item.images">
-                  <img ng-src="{{image}}" alt="mini-woops" />
-                </li>
-            </ul>
-
-          </section> -->
 
           <tab-panels></tab-panels>
-<!--           <section class="text-centre" ng-controller="TabController as tab">
 
-            <ul class="nav nav-pills">
-              <li ng-class="{active: tab.isSelected(1)}">
-                <a href="" ng-click="tab.selectTab(1)">Description</a>
-              </li>
-              <li ng-class="{active: tab.isSelected(2)}">
-                <a href="" ng-click="tab.selectTab(2)">Ingredients</a>
-              </li>
-              <li ng-class="{active: tab.isSelected(3)}">
-                <a href="" ng-click="tab.selectTab(3)">Reviews</a>
-              </li>
-            </ul>
-
-            <product-description class="panel" ng-show="tab.isSelected(1)">
-            </product-description>
-
-            <div product-ingredients class="panel" ng-show="tab.isSelected(2)">
-            </div>
-
-            <product-review class="panel" ng-show="tab.isSelected(3)">
-            </product-Review>
-
-          </section> -->
           <p ng-hide="item.in_stock">Item is out of stock!</p>
           <button ng-show="item.in_stock">Add to cart</button>
         </div>
