@@ -1,3 +1,5 @@
-# angular-myStore
+# myStore
 
 storefront app using angular
+
+## Expectations
