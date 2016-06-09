@@ -4,4 +4,4 @@ storefront app using angular
 
 ## Expectations
 
-- restart project Mon Jun 5 2016
+- restart project weekend of Jun 11, 2016
